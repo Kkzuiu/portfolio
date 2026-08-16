@@ -1,0 +1,23 @@
+# Abhängigkeiten & Build
+node_modules/
+.next/
+out/
+
+# Geheimnisse
+.env
+.env.local
+
+# Private Unterlagen – NIEMALS hochladen (Zeugnisse mit Noten!)
+_persoenliche-dokumente/
+
+# Alte Sicherung & Deploy-Reste (brauchst du online nicht)
+_alt-backup/
+_deploy/
+tmp/
+
+# System
+.DS_Store
+*.local
+
+# Papierkorb-Ordner (kann geloescht werden)
+_zum-loeschen/

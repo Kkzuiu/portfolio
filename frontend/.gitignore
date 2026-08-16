@@ -1,0 +1,12 @@
+# Abhängigkeiten & Build – werden nicht hochgeladen (Vercel installiert selbst)
+node_modules/
+.next/
+out/
+
+# Umgebungsvariablen / Geheimnisse – niemals hochladen
+.env
+.env.local
+
+# System
+.DS_Store
+*.local
