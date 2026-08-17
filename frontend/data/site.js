@@ -25,7 +25,7 @@ export const site = {
 }
 
 export const contact = {
-  email: 'cat-tuong.nguyen@bwdbern.ch',
+  email: 'cat-tuong.nguyen@proton.me',
   github: 'https://github.com/Kkzuiu',
   linkedin: '',
   cvUrl: '',
@@ -39,10 +39,42 @@ export const status = {
 
 export const impressum = {
   name: 'Nguyen Cat Tuong',
-  addressLines: ['[Strasse Nr.]', '[PLZ Ort], Schweiz'],
-  email: 'cat-tuong.nguyen@bwdbern.ch',
-  note: {
-    de: 'Persönliches Informatik-Portfolio im Rahmen der Ausbildung an der IMS Bern. Alle Bilder und Videos stammen von mir oder sind lizenzfrei. Gehostet über Vercel.',
-    en: 'Personal computer-science portfolio, created as part of my education at IMS Bern. All images and videos are my own or royalty-free. Hosted on Vercel.',
-  },
+  email: 'cat-tuong.nguyen@proton.me',
+  sections: [
+    {
+      title: { de: 'Angaben', en: 'About this site' },
+      text: {
+        de: 'Diese Website ist ein privates, nicht-kommerzielles Portfolio, erstellt im Rahmen der Ausbildung an der Informatikmittelschule (IMS) Bern. Kontakt über das Formular oder per E-Mail.',
+        en: 'This website is a private, non-commercial portfolio, created as part of my education at the IT middle school (IMS) in Bern. Contact via the form or by email.',
+      },
+    },
+    {
+      title: { de: 'Haftung für Inhalte', en: 'Liability for content' },
+      text: {
+        de: 'Die Inhalte dieser Website wurden mit grösster Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte kann jedoch keine Gewähr übernommen werden.',
+        en: 'The content of this website has been created with the greatest possible care. However, no guarantee can be given for the accuracy, completeness or timeliness of the content.',
+      },
+    },
+    {
+      title: { de: 'Haftung für Links', en: 'Liability for links' },
+      text: {
+        de: 'Diese Website enthält Links zu externen Websites Dritter (z. B. GitHub). Auf deren Inhalte habe ich keinen Einfluss und übernehme dafür keine Haftung. Für die Inhalte verlinkter Seiten ist stets der jeweilige Anbieter verantwortlich.',
+        en: 'This website contains links to external third-party websites (e.g. GitHub). I have no influence over their content and accept no liability for it. The respective provider is always responsible for the content of linked pages.',
+      },
+    },
+    {
+      title: { de: 'Urheberrecht', en: 'Copyright' },
+      text: {
+        de: 'Alle Texte, Bilder und Projekte auf dieser Website stammen von mir oder sind lizenzfrei. Eine Weiterverwendung ohne meine Zustimmung ist nicht gestattet.',
+        en: 'All texts, images and projects on this website are my own or royalty-free. Any reuse without my consent is not permitted.',
+      },
+    },
+    {
+      title: { de: 'Datenschutz', en: 'Privacy' },
+      text: {
+        de: 'Über das Kontaktformular übermittelte Angaben (Name, E-Mail, Nachricht) werden ausschliesslich zur Bearbeitung der Anfrage verwendet und nicht an Dritte weitergegeben. Der geschützte Dokumente-Bereich ist nur mit persönlichen Zugangsdaten erreichbar.',
+        en: 'Information submitted via the contact form (name, email, message) is used solely to process your request and is not shared with third parties. The protected documents area is only accessible with personal credentials.',
+      },
+    },
+  ],
 }

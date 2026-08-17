@@ -49,10 +49,14 @@ export default function Footer() {
         <p className="eyebrow">{t('foot.impressum')}</p>
         <h2 className="modal-title">{impressum.name}</h2>
         <address className="imp-address">
-          {impressum.addressLines.map((line, i) => <span key={i}>{line}<br /></span>)}
           <a href={`mailto:${impressum.email}`}>{impressum.email}</a>
         </address>
-        <p className="muted">{tr(impressum.note)}</p>
+        {impressum.sections.map((s, i) => (
+          <div className="abstract-block" key={i}>
+            <h3>{tr(s.title)}</h3>
+            <p>{tr(s.text)}</p>
+          </div>
+        ))}
       </Modal>
     </footer>
   )
