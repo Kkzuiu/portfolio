@@ -14,13 +14,13 @@ export default function Kontakt() {
   const { t, tr } = useLang()
   const [form, setForm] = useState({ name: '', email: '', nachricht: '' })
   const [fehler, setFehler] = useState({})
-  const [gesendet, setGesendet] = useState(false)
+  const [status, setStatus] = useState('idle')
 
   function aendern(feld) {
     return (e) => setForm({ ...form, [feld]: e.target.value })
   }
 
-  function absenden(e) {
+  async function absenden(e) {
     e.preventDefault()
 
     const neueFehler = {}
@@ -31,12 +31,26 @@ export default function Kontakt() {
     setFehler(neueFehler)
     if (Object.keys(neueFehler).length > 0) return
 
-    const betreff = encodeURIComponent(`Kontakt · Portfolio – ${form.name}`)
-    const inhalt = encodeURIComponent(`${form.nachricht}\n\n${form.name} (${form.email})`)
-    window.location.href = `mailto:${contact.email}?subject=${betreff}&body=${inhalt}`
+    if (!contact.formEndpoint) {
+      const betreff = encodeURIComponent(`Kontakt · Portfolio – ${form.name}`)
+      const inhalt = encodeURIComponent(`${form.nachricht}\n\n${form.name} (${form.email})`)
+      window.location.href = `mailto:${contact.email}?subject=${betreff}&body=${inhalt}`
+      return
+    }
 
-    setGesendet(true)
-    setForm({ name: '', email: '', nachricht: '' })
+    setStatus('sending')
+    try {
+      const res = await fetch(contact.formEndpoint, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({ name: form.name, email: form.email, nachricht: form.nachricht }),
+      })
+      if (!res.ok) throw new Error()
+      setStatus('ok')
+      setForm({ name: '', email: '', nachricht: '' })
+    } catch {
+      setStatus('error')
+    }
   }
 
   return (
@@ -73,8 +87,11 @@ export default function Kontakt() {
               <textarea id="nachricht" rows="5" value={form.nachricht} onChange={aendern('nachricht')} />
               <small>{fehler.nachricht || ''}</small>
             </div>
-            <button type="submit" className="btn">{t('kontakt.send')}</button>
-            {gesendet && <p className="form-ok">{t('kontakt.ok')}</p>}
+            <button type="submit" className="btn" disabled={status === 'sending'}>
+              {status === 'sending' ? t('kontakt.sending') : t('kontakt.send')}
+            </button>
+            {status === 'ok' && <p className="form-ok">{t('kontakt.ok')}</p>}
+            {status === 'error' && <p className="login-error">{t('kontakt.errSend')}</p>}
           </form>
         </div>
       </div>

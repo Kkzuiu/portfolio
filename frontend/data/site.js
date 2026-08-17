@@ -24,17 +24,12 @@ export const site = {
   },
 }
 
-export const heroMedia = {
-  type: 'video',
-  image: '/start.jpg',
-  video: '/start.mp4',
-}
-
 export const contact = {
   email: 'cat-tuong.nguyen@bwdbern.ch',
   github: 'https://github.com/Kkzuiu',
   linkedin: '',
   cvUrl: '',
+  formEndpoint: '',
 }
 
 export const status = {
