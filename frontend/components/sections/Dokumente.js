@@ -119,6 +119,9 @@ function PrivaterBereich({ user, onLogout }) {
       <section className="privat-block">
         <h2>{t('dok.docsTitle')}</h2>
         {user.rolle === 'admin' && <Upload onFertig={ladeDokumente} />}
+        {dokumente.length > 0 && (
+          <a className="link-btn primary dok-zip" href="/api/dokumente/zip">{t('dok.downloadAll')}</a>
+        )}
         {dokumente.length === 0 ? (
           <p className="muted">{t('dok.noDocs')}</p>
         ) : (

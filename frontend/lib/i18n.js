@@ -104,6 +104,7 @@ export const texts = {
   'dok.download':  { de: 'Herunterladen', en: 'Download' },
   'dok.upload':    { de: 'Dokument hochladen', en: 'Upload document' },
   'dok.uploading': { de: 'Wird hochgeladen …', en: 'Uploading …' },
+  'dok.downloadAll': { de: 'Alle als ZIP herunterladen', en: 'Download all (ZIP)' },
 
   'adm.title':      { de: 'Firmen-Zugänge', en: 'Company access' },
   'adm.newTitle':   { de: 'Neuen Zugang erstellen', en: 'Create a new login' },

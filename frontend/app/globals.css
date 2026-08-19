@@ -305,6 +305,7 @@ button { font-family: var(--sans); cursor: pointer; color: inherit; }
 .dok-actions { display: flex; gap: 8px; }
 .dok-upload { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
 .dok-upload .btn { cursor: pointer; }
+.dok-zip { display: inline-flex; margin-bottom: 16px; }
 
 .admin { border-top: 1px solid var(--line); padding-top: 26px; }
 .admin-form { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 20px; }

@@ -25,7 +25,7 @@ export default function About() {
 
         <div className={`about-top ${hatFoto ? '' : 'no-photo'}`}>
           <p className="about-statement reveal">
-            <span className="quote">„</span>{tr(site.about)}
+            <span className="quote">„</span>{tr(site.about)}<span className="quote">“</span>
           </p>
 
           {hatFoto && (
