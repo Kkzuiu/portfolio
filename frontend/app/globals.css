@@ -142,7 +142,17 @@ button { font-family: var(--sans); cursor: pointer; color: inherit; }
 .start { padding: clamp(52px, 9vw, 104px) 0 clamp(40px, 7vw, 80px); }
 .start-intro { max-width: 820px; }
 
-.hero-collage { width: 100%; margin-bottom: clamp(26px, 4vw, 46px); }
+.hero-full { position: relative; min-height: calc(100vh - var(--nav-h)); display: flex; align-items: center; justify-content: center; padding: clamp(16px, 3vw, 30px) 0; }
+.hero-full .container { width: 100%; }
+.hero-collage { width: 100%; }
+.hero-full .collage { aspect-ratio: auto; height: min(80vh, 760px); }
+.scroll-hint { position: absolute; bottom: 18px; left: 50%; width: 42px; height: 42px; display: grid; place-items: center;
+  border-radius: 50%; border: 1.5px solid var(--line); background: var(--surface); color: var(--rose-deep); font-size: 20px;
+  transform: translateX(-50%); animation: hop 1.8s ease-in-out infinite; }
+.scroll-hint:hover { border-color: var(--rose); }
+@keyframes hop { 0%, 100% { transform: translateX(-50%) translateY(0); } 50% { transform: translateX(-50%) translateY(6px); } }
+@media (max-width: 700px) { .hero-full { min-height: calc(84vh - var(--nav-h)); } .hero-full .collage { height: 62vh; } }
+
 .start-intro.hero-text { max-width: 760px; margin: 0 auto; padding-top: 0; text-align: center; }
 .hero-text .eyebrow { justify-content: center; }
 .hero-text .start-tagline { margin-left: auto; margin-right: auto; }
