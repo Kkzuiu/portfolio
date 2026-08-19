@@ -142,13 +142,19 @@ button { font-family: var(--sans); cursor: pointer; color: inherit; }
 .start { padding: clamp(52px, 9vw, 104px) 0 clamp(40px, 7vw, 80px); }
 .start-intro { max-width: 820px; }
 
+.hero-collage { width: 100%; margin-bottom: clamp(26px, 4vw, 46px); }
+.start-intro.hero-text { max-width: 760px; margin: 0 auto; padding-top: 0; text-align: center; }
+.hero-text .eyebrow { justify-content: center; }
+.hero-text .start-tagline { margin-left: auto; margin-right: auto; }
+.hero-text .buttons { justify-content: center; }
+
 .wellen { line-height: 0; background: var(--paper); }
 .wellen svg { display: block; width: 200%; height: clamp(48px, 7vw, 92px); animation: wellen-move 16s linear infinite; }
 .wellen path { fill: var(--paper-2); }
 @keyframes wellen-move { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 @media (prefers-reduced-motion: reduce) { .wellen svg { animation: none; } }
 
-.collage { position: relative; max-width: var(--maxw); margin: 0 auto; aspect-ratio: 16 / 10; }
+.collage { position: relative; max-width: var(--maxw); margin: 0 auto; aspect-ratio: 2 / 1; }
 .collage .tile {
   position: absolute; border-radius: 14px; overflow: hidden;
   border: 1px solid rgba(255, 255, 255, .35);
@@ -383,13 +389,13 @@ button { font-family: var(--sans); cursor: pointer; color: inherit; }
 }
 
 @media (max-width: 760px) {
-  .collage { aspect-ratio: 4 / 3; }
+  .collage { aspect-ratio: 3 / 2; }
 }
 
 @media (max-width: 560px) {
   .info-cards, .project-grid, .skill-cards { grid-template-columns: 1fr; }
   .foot-grid { grid-template-columns: 1fr; gap: 24px; }
   .contact-list li { grid-template-columns: 110px 1fr; }
-  .collage { aspect-ratio: 1 / 1; }
+  .collage { aspect-ratio: 4 / 3; }
   .hobby-notes, .fact-edit { grid-template-columns: 1fr; }
 }

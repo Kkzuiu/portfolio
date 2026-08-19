@@ -2,6 +2,7 @@
 import Link from 'next/link'
 import { useLang } from '@/components/LangProvider'
 import { site } from '@/data/site'
+import Collage from '@/components/Collage'
 
 export default function Start() {
   const { t, tr } = useLang()
@@ -9,7 +10,11 @@ export default function Start() {
   return (
     <section className="start">
       <div className="container">
-        <div className="start-intro">
+        <div className="hero-collage">
+          <Collage />
+        </div>
+
+        <div className="start-intro hero-text">
           <p className="eyebrow">{site.school}</p>
           <h1>{site.name}</h1>
           <p className="start-role">{tr(site.role)}</p>
