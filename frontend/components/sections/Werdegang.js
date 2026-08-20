@@ -10,7 +10,7 @@ export default function Werdegang() {
     <section className="section alt">
       <div className="container">
         <div className="section-head reveal">
-          <p className="eyebrow">{t('about.weg')}</p>
+          <p className="eyebrow">{t('about.education')} &amp; {t('about.experience')}</p>
           <h2>{t('about.weg')}</h2>
         </div>
 

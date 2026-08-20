@@ -18,19 +18,17 @@ export default function About() {
   return (
     <section className="section">
       <div className="container">
-        <div className="section-head reveal">
-          <p className="eyebrow">{t('about.eyebrow')}</p>
-          <h1>{t('about.title')}</h1>
-        </div>
-
-        <div className={`about-top ${hatFoto ? '' : 'no-photo'}`}>
-          <p className="about-statement reveal">
-            <span className="quote">„</span>{tr(site.about)}<span className="quote">“</span>
-          </p>
+        <div className={`ab-hero reveal ${hatFoto ? '' : 'no-photo'}`}>
+          <div>
+            <p className="ab-hi">Hi, I&rsquo;m</p>
+            <h1>{site.name}</h1>
+            <p>{tr(site.about)}</p>
+          </div>
 
           {hatFoto && (
-            <figure className="about-photo reveal">
-              <img src="/portrait.jpg" alt={t('about.portraitAlt')} onError={() => setHatFoto(false)} />
+            <figure className="ab-photo">
+              <span className="spark" aria-hidden="true">✦</span>
+              <img src="/Cat.jpeg" alt={t('about.portraitAlt')} onError={() => setHatFoto(false)} />
             </figure>
           )}
         </div>

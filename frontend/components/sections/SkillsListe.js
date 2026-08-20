@@ -18,26 +18,29 @@ export default function SkillsListe() {
           <p className="lead">{t('skills.lead')}</p>
         </div>
 
-        <div className="radar-box reveal">
-          <h2 className="radar-title">{tr(kategorie.name)}</h2>
-          <RadarChart items={kategorie.items} />
-        </div>
+        <div className="skills-wrap reveal">
+          <div className="radar-stage">
+            <div className="radar-frame">
+              <span className="spark" aria-hidden="true">✦</span>
+              <RadarChart items={kategorie.items} />
+            </div>
+            <h2 className="radar-title">{tr(kategorie.name)}</h2>
+          </div>
 
-        <div className="skill-cards">
-          {skills.map((k, i) => (
-            <button
-              type="button"
-              className={`skill-card ${i === aktiv ? 'active' : ''}`}
-              key={tr(k.name)}
-              onClick={() => setAktiv(i)}
-              aria-pressed={i === aktiv}
-            >
-              <h3>{tr(k.name)}</h3>
-              <div className="tags">
-                {k.items.map((item) => <span key={item.name}>{item.name}</span>)}
-              </div>
-            </button>
-          ))}
+          <div className="skill-picker">
+            {skills.map((k, i) => (
+              <button
+                type="button"
+                className={`skill-card ${i === aktiv ? 'active' : ''}`}
+                key={tr(k.name)}
+                onClick={() => setAktiv(i)}
+                aria-pressed={i === aktiv}
+              >
+                <h3>{tr(k.name)}</h3>
+                <span className="skill-count">{String(k.items.length).padStart(2, '0')}</span>
+              </button>
+            ))}
+          </div>
         </div>
       </div>
     </section>

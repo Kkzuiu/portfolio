@@ -12,17 +12,17 @@ export default function Leistungen() {
   ]
 
   return (
-    <section className="lst">
+    <section className="section lst">
       <div className="container">
-        <div className="lst-head">
-          <p className="lst-sub">腕 · Craft</p>
+        <div className="section-head">
+          <p className="eyebrow">{t('lst.sub')}</p>
           <h2>{t('home.doTitle')}</h2>
-          <p className="lst-lead">{t('home.doLead')}</p>
+          <p className="lead">{t('home.doLead')}</p>
         </div>
 
         <div className="lst-list">
           {rows.map(([title, body], i) => (
-            <div className="lst-row" key={title}>
+            <div className="lst-row reveal" key={title}>
               <span className="lst-num">{String(i + 1).padStart(2, '0')}</span>
               <div className="lst-body">
                 <h3>{t(title)}</h3>
