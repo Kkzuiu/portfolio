@@ -3,8 +3,13 @@ export const site = {
   name: 'Nguyen Cat Tuong',
 
   role: {
-    de: 'Angehende Applikationsentwicklerin · IMS Bern',
-    en: 'Aspiring application developer · IMS Bern',
+    de: 'Angehende Applikationsentwicklerin',
+    en: 'Aspiring application developer',
+  },
+
+  roleSchool: {
+    de: 'IMS Bern',
+    en: 'IMS Bern',
   },
 
   location: { de: 'Bern, Schweiz', en: 'Bern, Switzerland' },

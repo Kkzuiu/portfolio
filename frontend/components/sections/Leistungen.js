@@ -4,7 +4,7 @@ import { useLang } from '@/components/LangProvider'
 
 export default function Leistungen() {
   const { t } = useLang()
-  const cards = [
+  const rows = [
     ['home.web', 'home.webText'],
     ['home.mobile', 'home.mobileText'],
     ['home.data', 'home.dataText'],
@@ -12,26 +12,29 @@ export default function Leistungen() {
   ]
 
   return (
-    <section className="section alt">
+    <section className="lst">
       <div className="container">
-        <div className="section-head reveal">
-          <p className="eyebrow">{t('home.doTitle')}</p>
+        <div className="lst-head">
+          <p className="lst-sub">腕 · Craft</p>
           <h2>{t('home.doTitle')}</h2>
-          <p className="lead">{t('home.doLead')}</p>
+          <p className="lst-lead">{t('home.doLead')}</p>
         </div>
 
-        <div className="info-cards">
-          {cards.map(([title, body]) => (
-            <div className="info-card reveal" key={title}>
-              <h3>{t(title)}</h3>
-              <p>{t(body)}</p>
+        <div className="lst-list">
+          {rows.map(([title, body], i) => (
+            <div className="lst-row" key={title}>
+              <span className="lst-num">{String(i + 1).padStart(2, '0')}</span>
+              <div className="lst-body">
+                <h3>{t(title)}</h3>
+                <p>{t(body)}</p>
+              </div>
             </div>
           ))}
         </div>
 
         <div className="buttons center">
           <Link href="/projekte" className="btn">{t('home.toProjects')}</Link>
-          <Link href="/about" className="btn">{t('home.toAbout')}</Link>
+          <Link href="/about" className="btn ghost">{t('home.toAbout')}</Link>
         </div>
       </div>
     </section>

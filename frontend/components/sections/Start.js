@@ -17,6 +17,7 @@ export default function Start() {
         <div className="eh-left">
           <h1>{nameFirst}<br />{nameRest}</h1>
           <p className="eh-role">{tr(site.role)}</p>
+          <p className="eh-school">{tr(site.roleSchool)}</p>
           <p className="eh-text">{tr(heroSlogan)}</p>
 
           <div className="buttons">
