@@ -27,9 +27,14 @@ export const site = {
 export const contact = {
   email: 'cat-tuong.nguyen@proton.me',
   github: 'https://github.com/Kkzuiu',
-  linkedin: '',
+  linkedin: 'https://www.linkedin.com/in/cat-tuong-nguyen-864bb3238/',
   cvUrl: '',
   formEndpoint: 'https://formspree.io/f/mgawnkwn',
+}
+
+export const heroQuote = {
+  text: 'Learning without thought is labour lost; thought without learning is perilous.',
+  author: 'Confucius',
 }
 
 export const status = {
