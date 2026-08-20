@@ -1,10 +1,13 @@
 'use client'
 import Link from 'next/link'
 import { useLang } from '@/components/LangProvider'
-import { site, heroQuote } from '@/data/site'
+import { site, heroQuote, heroSlogan } from '@/data/site'
 
 export default function Start() {
   const { t, tr } = useLang()
+  const nameParts = site.name.split(' ')
+  const nameFirst = nameParts[0]
+  const nameRest = nameParts.slice(1).join(' ')
 
   return (
     <section className="editorial">
@@ -12,9 +15,9 @@ export default function Start() {
 
       <div className="container eh-wrap">
         <div className="eh-left">
-          <h1>{site.name}</h1>
+          <h1>{nameFirst}<br />{nameRest}</h1>
           <p className="eh-role">{tr(site.role)}</p>
-          <p className="eh-text">{tr(site.tagline)}</p>
+          <p className="eh-text">{tr(heroSlogan)}</p>
 
           <div className="buttons">
             <Link href="/projekte" className="btn">{t('start.ctaProjects')}</Link>

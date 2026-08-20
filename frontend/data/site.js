@@ -37,6 +37,11 @@ export const heroQuote = {
   author: 'Confucius',
 }
 
+export const heroSlogan = {
+  de: 'Wo Code auf Gestaltung trifft.',
+  en: 'Where code meets design.',
+}
+
 export const status = {
   show: true,
   text: { de: 'Offen für Praktikum', en: 'Open to internship' },
