@@ -8,6 +8,8 @@ export const skills = [
       { name: 'TypeScript', level: 4 },
       { name: 'React', level: 4 },
       { name: 'Next.js', level: 3 },
+      { name: 'Tailwind CSS', level: 4 },
+      { name: 'Vite', level: 3 },
     ],
   },
   {
@@ -17,6 +19,7 @@ export const skills = [
       { name: 'Express', level: 3 },
       { name: 'REST-APIs', level: 4 },
       { name: 'Firebase', level: 4 },
+      { name: 'Google Gemini API', level: 3 },
     ],
   },
   {
@@ -41,7 +44,17 @@ export const skills = [
       { name: 'C#', level: 4 },
       { name: '.NET', level: 3 },
       { name: '.NET MAUI', level: 3 },
+      { name: 'WinForms', level: 3 },
       { name: 'XAML', level: 3 },
+    ],
+  },
+  {
+    name: { de: 'Skripting und weitere Sprachen', en: 'Scripting and more languages' },
+    items: [
+      { name: 'Python', level: 4 },
+      { name: 'Bash', level: 3 },
+      { name: 'Go', level: 3 },
+      { name: 'PowerShell', level: 2 },
     ],
   },
   {
@@ -53,14 +66,17 @@ export const skills = [
     ],
   },
   {
-    name: { de: 'Design Software', en: 'Design software' },
+    name: { de: 'UI/UX und Design', en: 'UI/UX and design' },
     items: [
+      { name: 'UI/UX Design', level: 4 },
+      { name: 'Responsive Design', level: 4 },
+      { name: 'Prototyping', level: 3 },
       { name: 'Figma', level: 3 },
       { name: 'Canva', level: 4 },
     ],
   },
   {
-    name: { de: 'Cloud & Containerisierung', en: 'Cloud & containers' },
+    name: { de: 'Cloud und Containerisierung', en: 'Cloud and containers' },
     items: [
       { name: 'Azure', level: 2 },
       { name: 'Docker', level: 2 },

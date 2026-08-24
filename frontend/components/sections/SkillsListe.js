@@ -19,27 +19,29 @@ export default function SkillsListe() {
         </div>
 
         <div className="skills-wrap reveal">
-          <div className="radar-stage">
-            <div className="radar-frame">
-              <span className="spark" aria-hidden="true">✦</span>
-              <RadarChart items={kategorie.items} />
-            </div>
+          <div className="radar-side">
+            <RadarChart items={kategorie.items} />
             <h2 className="radar-title">{tr(kategorie.name)}</h2>
           </div>
 
-          <div className="skill-picker">
-            {skills.map((k, i) => (
-              <button
-                type="button"
-                className={`skill-card ${i === aktiv ? 'active' : ''}`}
-                key={tr(k.name)}
-                onClick={() => setAktiv(i)}
-                aria-pressed={i === aktiv}
-              >
-                <h3>{tr(k.name)}</h3>
-                <span className="skill-count">{String(k.items.length).padStart(2, '0')}</span>
-              </button>
-            ))}
+          <div className="skills-side">
+            <div className="skill-pills">
+              {skills.map((k, i) => (
+                <button
+                  type="button"
+                  className={`skill-pill ${i === aktiv ? 'active' : ''}`}
+                  key={tr(k.name)}
+                  onClick={() => setAktiv(i)}
+                  aria-pressed={i === aktiv}
+                >
+                  {tr(k.name)}
+                </button>
+              ))}
+            </div>
+
+            <div className="skill-items tags">
+              {kategorie.items.map((it) => <span key={it.name}>{it.name}</span>)}
+            </div>
           </div>
         </div>
       </div>
