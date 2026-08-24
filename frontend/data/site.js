@@ -14,9 +14,9 @@ export const site = {
 
   location: { de: 'Bern, Schweiz', en: 'Bern, Switzerland' },
 
-  focus: { de: 'Web & Frontend', en: 'Web & Frontend' },
+  focus: { de: 'UI/UX und Gestaltung', en: 'UI/UX and design' },
 
-  school: 'IMS · bwd & gibb Bern',
+  school: 'IMS · bwd und gibb Bern',
 
   tagline: {
     de: 'Ich entwickle Web- und Mobile-Apps – von der Idee bis zur fertigen, sauberen Lösung.',
@@ -24,8 +24,8 @@ export const site = {
   },
 
   about: {
-    de: 'Ich bin Cat und besuche die Informatikmittelschule (IMS) in Bern, Fachrichtung Applikationsentwicklung. Mich fasziniert, wie aus ein paar Zeilen Code etwas entsteht, das man sehen und benutzen kann – am liebsten verbinde ich Technik mit Gestaltung.',
-    en: 'I’m Cat, a student at the IT middle school (IMS) in Bern, specialising in application development. I’m fascinated by how a few lines of code turn into something you can see and use – I love combining technology with design.',
+    de: 'Ich bin Cat, 18 Jahre alt, und besuche die Informatikmittelschule (IMS) in Bern, Fachrichtung Applikationsentwicklung. Mich fasziniert, wie aus ein paar Zeilen Code etwas entsteht, das man sehen und benutzen kann. Besonders spannend finde ich UI und UX, also wie sich eine Anwendung anfühlt und wie leicht sie sich bedienen lässt. Am liebsten verbinde ich Technik mit Gestaltung.',
+    en: 'I’m Cat, 18 years old, and a student at the IT middle school (IMS) in Bern, specialising in application development. I’m fascinated by how a few lines of code turn into something you can see and use. I find UI and UX especially exciting, meaning how an application feels and how easily it can be used. Most of all, I love combining technology with design.',
   },
 }
 

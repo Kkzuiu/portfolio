@@ -1,5 +1,4 @@
 'use client'
-import Link from 'next/link'
 import { useLang } from '@/components/LangProvider'
 
 export default function Leistungen() {
@@ -20,21 +19,14 @@ export default function Leistungen() {
           <p className="lead">{t('home.doLead')}</p>
         </div>
 
-        <div className="lst-list">
+        <div className="do-grid">
           {rows.map(([title, body], i) => (
-            <div className="lst-row reveal" key={title}>
-              <span className="lst-num">{String(i + 1).padStart(2, '0')}</span>
-              <div className="lst-body">
-                <h3>{t(title)}</h3>
-                <p>{t(body)}</p>
-              </div>
+            <div className="do-card reveal" key={title}>
+              <span className="do-num">{String(i + 1).padStart(2, '0')}</span>
+              <h3>{t(title)}</h3>
+              <p>{t(body)}</p>
             </div>
           ))}
-        </div>
-
-        <div className="buttons center">
-          <Link href="/projekte" className="btn">{t('home.toProjects')}</Link>
-          <Link href="/about" className="btn ghost">{t('home.toAbout')}</Link>
         </div>
       </div>
     </section>

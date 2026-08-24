@@ -12,7 +12,6 @@ export default function CtaBand() {
         <p style={{ marginLeft: 'auto', marginRight: 'auto' }}>{t('home.ctaText')}</p>
         <div className="buttons center">
           <Link href="/projekte" className="btn">{t('home.seeProjects')}</Link>
-          <Link href="/kontakt" className="btn ghost">{t('start.ctaContact')}</Link>
         </div>
       </div>
     </section>

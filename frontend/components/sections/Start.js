@@ -13,23 +13,19 @@ export default function Start() {
     <section className="hero">
       <div className="hero-grid container">
         <div className="hero-lead">
-          <p className="hero-hi">Hello, I&rsquo;m</p>
+          <p className="hero-hi">{t('hero.hi')}</p>
           <h1 className="hero-name">{nameFirst}<br />{nameRest}</h1>
           <div className="hero-rule" aria-hidden="true" />
           <p className="hero-role">{tr(site.role)}</p>
           <p className="hero-school">{tr(site.roleSchool)}</p>
           <p className="hero-slogan">{tr(heroSlogan)}</p>
           <div className="buttons">
-            <Link href="/projekte" className="btn">{t('start.ctaProjects')}</Link>
-            <Link href="/kontakt" className="btn ghost">{t('start.ctaContact')}</Link>
+            <Link href="/kontakt" className="btn">{t('start.ctaContact')}</Link>
           </div>
         </div>
 
         <div className="hero-art">
-          <span className="spark-1" aria-hidden="true">✦</span>
-          <img src="/collage/blossom.jpg" alt="" className="hero-painting" />
-          <img src="/Cat.jpeg" alt="" className="hero-photo" />
-          <span className="spark-2" aria-hidden="true">✧</span>
+          <img src="/start/blossom.jpg" alt="" className="hero-painting" />
         </div>
       </div>
     </section>

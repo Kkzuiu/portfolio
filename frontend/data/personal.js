@@ -1,7 +1,7 @@
 export const hobbys = [
   {
     title: { de: 'Lesen', en: 'Reading' },
-    body: { de: 'Fantasy, Krimis und Geschichten mit einer tieferen Botschaft.', en: 'Fantasy, mysteries and stories with a deeper message.' },
+    body: { de: 'Buddhistische Lehren, Krimis, .', en: 'Fantasy, mysteries and stories with a deeper message.' },
   },
   {
     title: { de: 'Zeichnen', en: 'Drawing' },
