@@ -68,3 +68,12 @@ export async function speicherHochladen(name, bytes, typ) {
   })
   if (!res.ok) throw new Error(`Hochladen fehlgeschlagen (${res.status})`)
 }
+
+export async function speicherLoeschen(name) {
+  pruefen()
+  const res = await fetch(`${BASIS}/storage/v1/object/${BUCKET}/${encodeURIComponent(name)}`, {
+    method: 'DELETE',
+    headers: kopf(),
+  })
+  if (!res.ok) throw new Error(`Löschen fehlgeschlagen (${res.status})`)
+}

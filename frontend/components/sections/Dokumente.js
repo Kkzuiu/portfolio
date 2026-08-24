@@ -106,6 +106,12 @@ function PrivaterBereich({ user, onLogout }) {
 
   useEffect(() => { ladeDokumente() }, [ladeDokumente])
 
+  async function dokumentLoeschen(name) {
+    if (!confirm(`„${name}" wirklich löschen?`)) return
+    await fetch(`/api/dokumente/${encodeURIComponent(name)}`, { method: 'DELETE' })
+    ladeDokumente()
+  }
+
   return (
     <div className="privat">
       <div className="privat-head">
@@ -132,6 +138,9 @@ function PrivaterBereich({ user, onLogout }) {
                 <span className="dok-actions">
                   <a className="link-btn" href={`/api/dokumente/${encodeURIComponent(name)}`} target="_blank" rel="noreferrer">{t('dok.view')}</a>
                   <a className="link-btn primary" href={`/api/dokumente/${encodeURIComponent(name)}?dl=1`}>{t('dok.download')}</a>
+                  {user.rolle === 'admin' && (
+                    <button className="link-btn danger" onClick={() => dokumentLoeschen(name)}>{t('dok.delete')}</button>
+                  )}
                 </span>
               </li>
             ))}
