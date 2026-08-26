@@ -21,7 +21,7 @@ export default function Werdegang() {
             return (
               <li className="timeline-item reveal" key={i}>
                 <span className="timeline-tag">{tag}</span>
-                <span className="timeline-date">{eintrag.from} – {bis}</span>
+                <span className="timeline-date">{eintrag.from} - {bis}</span>
                 <h3>{tr(eintrag.title)}</h3>
                 <p>{tr(eintrag.where)}</p>
               </li>
