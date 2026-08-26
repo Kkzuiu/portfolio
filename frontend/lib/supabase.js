@@ -14,7 +14,7 @@ function kopf(extra = {}) {
 export async function dbSelect(tabelle, query = '') {
   pruefen()
   const res = await fetch(`${BASIS}/rest/v1/${tabelle}${query}`, { headers: kopf(), cache: 'no-store' })
-  if (!res.ok) throw new Error(`Datenbank-Fehler (${res.status})`)
+  if (!res.ok) throw new Error(`Datenbank Fehler (${res.status})`)
   return res.json()
 }
 
@@ -25,14 +25,14 @@ export async function dbInsert(tabelle, daten) {
     headers: kopf({ 'Content-Type': 'application/json', Prefer: 'return=representation' }),
     body: JSON.stringify(daten),
   })
-  if (!res.ok) throw new Error(`Datenbank-Fehler beim Speichern (${res.status})`)
+  if (!res.ok) throw new Error(`Datenbank Fehler beim Speichern (${res.status})`)
   return res.json()
 }
 
 export async function dbDelete(tabelle, query) {
   pruefen()
   const res = await fetch(`${BASIS}/rest/v1/${tabelle}${query}`, { method: 'DELETE', headers: kopf() })
-  if (!res.ok) throw new Error(`Datenbank-Fehler beim Löschen (${res.status})`)
+  if (!res.ok) throw new Error(`Datenbank Fehler beim Löschen (${res.status})`)
 }
 
 export async function speicherListe() {
@@ -43,7 +43,7 @@ export async function speicherListe() {
     body: JSON.stringify({ prefix: '', limit: 200, sortBy: { column: 'name', order: 'asc' } }),
     cache: 'no-store',
   })
-  if (!res.ok) throw new Error(`Speicher-Fehler (${res.status})`)
+  if (!res.ok) throw new Error(`Speicher Fehler (${res.status})`)
   const liste = await res.json()
   return liste
     .map((o) => o.name)

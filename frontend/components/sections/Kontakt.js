@@ -32,7 +32,7 @@ export default function Kontakt() {
     if (Object.keys(neueFehler).length > 0) return
 
     if (!contact.formEndpoint) {
-      const betreff = encodeURIComponent(`Kontakt · Portfolio – ${form.name}`)
+      const betreff = encodeURIComponent(`Kontakt · Portfolio, ${form.name}`)
       const inhalt = encodeURIComponent(`${form.nachricht}\n\n${form.name} (${form.email})`)
       window.location.href = `mailto:${contact.email}?subject=${betreff}&body=${inhalt}`
       return
