@@ -6,7 +6,7 @@ import Footer from '@/components/Footer'
 
 export const metadata = {
   title: 'Nguyen Cat Tuong · Portfolio',
-  description: 'Portfolio von Nguyen Cat Tuong – angehende Applikationsentwicklerin, IMS Bern. Projekte, Skills und Kontakt.',
+  description: 'Portfolio von Nguyen Cat Tuong, angehende Applikationsentwicklerin, IMS Bern. Projekte, Skills und Kontakt.',
 }
 
 const themeScript = `(function(){try{var t=localStorage.getItem('theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t);}catch(e){}})();`
@@ -16,6 +16,7 @@ export default function RootLayout({ children }) {
     <html lang="de" suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
       </head>
       <body>
         <ThemeProvider>
