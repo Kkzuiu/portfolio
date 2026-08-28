@@ -150,17 +150,16 @@ button { font-family: var(--sans); cursor: pointer; color: inherit; }
 .teaser h2 em { font-family: var(--display); font-style: italic; font-weight: 500; color: var(--wine); font-size: 1em; }
 .teaser p { font-family: var(--display); font-style: italic; color: var(--ink-soft); font-size: clamp(16px, 1.7vw, 20px); line-height: 1.7; margin-bottom: 24px; max-width: 46ch; }
 
-/* what I do — playful cards */
-.lst { background: var(--paper); }
-.do-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: clamp(16px, 2.4vw, 28px); max-width: 900px; margin: 0 auto; }
-.do-card { position: relative; background: var(--surface); border: 1px solid var(--line); border-radius: 20px; padding: clamp(26px, 3vw, 36px);
-  transition: transform .25s, box-shadow .25s, border-color .25s; }
-.do-card:nth-child(even) { transform: rotate(.5deg); }
-.do-card:hover { transform: translateY(-6px) rotate(-1deg); box-shadow: var(--shadow); border-color: var(--rose); }
-.do-num { font-family: var(--display); font-style: italic; font-weight: 500; font-size: clamp(28px, 3.2vw, 38px); color: var(--wine); line-height: 1; }
-.do-card h3 { font-family: var(--display); font-weight: 600; font-size: clamp(20px, 2.2vw, 27px); margin: 6px 0 10px; }
-.do-card p { font-family: var(--sans); color: var(--ink-soft); font-size: clamp(14.5px, 1.5vw, 16px); line-height: 1.7; }
-@media (max-width: 640px) { .do-grid { grid-template-columns: 1fr; } .do-card, .do-card:nth-child(even) { transform: none; } }
+/* Mein Weg (Skills-Seite, unter der Tastatur) — zweispaltig, linksbuendig */
+.weg { background: var(--paper-2); }
+.weg-grid { display: grid; grid-template-columns: .82fr 1.18fr; gap: clamp(28px, 5vw, 70px); align-items: start; max-width: 1000px; margin: 0 auto; }
+.weg-head .eyebrow { justify-content: flex-start; }
+.weg-head h2 { font-size: clamp(30px, 4.4vw, 50px); margin-top: 14px; line-height: 1.05; }
+.weg-kicker { margin-top: 18px; font-family: var(--display); font-style: italic; font-size: clamp(16px, 1.7vw, 20px); color: var(--wine); }
+.weg-body p { font-family: var(--sans); font-size: clamp(15.5px, 1.6vw, 18px); line-height: 1.9; color: var(--ink); max-width: 54ch; }
+.weg-body p.two { color: var(--ink); margin-top: 18px; }
+.weg-body em { font-style: normal; font-weight: 600; color: var(--wine); }
+@media (max-width: 760px) { .weg-grid { grid-template-columns: 1fr; gap: 22px; } }
 
 /* dark band (cta / practical) */
 .band-dark { background: var(--dark); color: var(--dark-ink); }
@@ -178,6 +177,17 @@ button { font-family: var(--sans); cursor: pointer; color: inherit; }
 .project-card { position: relative; background: var(--surface); border: 1px solid var(--line); border-radius: 16px; overflow: hidden;
   display: flex; flex-direction: column; transition: transform .28s, box-shadow .28s, border-color .28s; }
 .project-card:hover { transform: translateY(-6px); box-shadow: var(--shadow); border-color: var(--rose); }
+
+/* Lieblingsprojekt hervorheben */
+.project-card.featured { border-color: var(--rose-deep); box-shadow: 0 0 0 1px var(--rose-deep), 0 20px 40px -26px rgba(141,47,72,.5); }
+.proj-fav { position: absolute; top: 12px; left: 12px; z-index: 2; display: inline-flex; align-items: center; gap: 5px;
+  font-family: var(--sans); font-size: 12px; font-weight: 700; letter-spacing: .02em; color: #fff;
+  background: linear-gradient(180deg, var(--rose), var(--wine)); padding: 6px 12px; border-radius: 999px;
+  box-shadow: 0 6px 16px -6px rgba(141,47,72,.6); }
+.proj-meta { font-family: var(--sans); font-size: 12.5px; font-weight: 600; color: var(--rose-deep); margin: 0 0 12px; letter-spacing: .01em; }
+.modal-facts { display: flex; flex-wrap: wrap; gap: 8px; margin: 4px 0 14px; }
+.modal-facts span { font-family: var(--sans); font-size: 12.5px; font-weight: 600; color: var(--wine);
+  background: var(--paper-2); border: 1px solid var(--line); padding: 5px 12px; border-radius: 999px; }
 .project-cover { position: relative; aspect-ratio: 16 / 10; display: flex; align-items: center; justify-content: center; overflow: hidden; background: var(--paper-2); }
 .project-cover img { width: 100%; height: 100%; object-fit: cover; object-position: top center; transition: transform .55s ease; }
 .project-card:hover .project-cover img { transform: scale(1.045); }
@@ -244,22 +254,47 @@ button { font-family: var(--sans); cursor: pointer; color: inherit; }
 .key.deco:hover .cap { box-shadow: 0 5px 0 -1px color-mix(in srgb, var(--rose) 30%, var(--line)), 0 11px 16px -8px rgba(120,50,80,.4); }
 .key .klbl { font-size: calc(var(--ku) * 0.17); font-weight: 700; color: var(--ink-soft); line-height: 1.05; text-align: center; padding: 0 2px; overflow: hidden; }
 
-.kb-hint { text-align: center; margin-top: 16px; font-size: 12.5px; color: var(--ink-soft); letter-spacing: .03em; }
-
-.kd { margin: 30px auto 0; max-width: 620px; border-radius: 22px; background: var(--surface); border: 1px solid var(--line);
-  box-shadow: var(--shadow); padding: 26px 26px 30px; animation: kdIn .35s cubic-bezier(.22,.61,.36,1); }
-@keyframes kdIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
-.kd-badge { width: 56px; height: 56px; border-radius: 14px; display: grid; place-items: center; margin-bottom: 14px;
+/* Fester Slot fuer das Detail-Panel -> nichts darunter verrutscht beim Oeffnen/Schliessen */
+.kb-detail { min-height: 250px; margin-top: 30px; }
+.kd { max-width: 820px; margin: 0 auto; border-radius: 22px; background: var(--surface); border: 1px solid var(--line);
+  box-shadow: var(--shadow); padding: 30px 32px; display: grid; grid-template-columns: 190px 1fr; gap: 32px; align-items: start;
+  animation: kdIn .3s cubic-bezier(.22,.61,.36,1); }
+@keyframes kdIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+.kd-side { border-right: 1px solid var(--line); padding-right: 28px; }
+.kd-badge { width: 54px; height: 54px; border-radius: 14px; display: grid; place-items: center; margin-bottom: 14px;
   background: linear-gradient(160deg, var(--paper-2), var(--surface)); border: 1px solid var(--line); }
-.kd-badge i { font-size: 34px; }
+.kd-badge i { font-size: 32px; }
 .kd-badgetxt { font-size: 20px; font-weight: 800; color: var(--wine); }
-.kd h2 { font-family: var(--display); font-size: 27px; margin: 0 0 3px; }
-.kd .cat { font-size: 12px; color: var(--rose-deep); font-weight: 600; text-transform: uppercase; letter-spacing: .12em; margin: 0 0 18px; }
-.kd p.desc { font-size: 14.5px; line-height: 1.62; color: var(--ink); margin: 0 0 18px; }
-.kd .lbl { font-size: 11.5px; font-weight: 700; text-transform: uppercase; letter-spacing: .1em; color: var(--ink-soft); margin: 0 0 9px; }
+.kd h2 { font-family: var(--display); font-size: 26px; margin: 0 0 4px; line-height: 1.1; }
+.kd .cat { font-size: 12px; color: var(--rose-deep); font-weight: 600; text-transform: uppercase; letter-spacing: .12em; margin: 0 0 14px; }
+.kd-main p.desc { font-size: 15px; line-height: 1.7; color: var(--ink); margin: 0 0 20px; }
+.kd .lbl { font-size: 11.5px; font-weight: 700; text-transform: uppercase; letter-spacing: .1em; color: var(--ink-soft); margin: 0 0 10px; }
 .kd-proj { display: flex; flex-wrap: wrap; gap: 8px; }
 .kd-proj span { font-size: 13px; color: var(--wine); background: var(--paper-2); border: 1px solid var(--line);
   padding: 6px 13px; border-radius: 999px; font-weight: 600; }
+.kd-empty { min-height: 250px; display: grid; place-items: center; text-align: center; }
+.kd-empty span { font-family: var(--display); font-style: italic; font-size: clamp(16px, 1.8vw, 19px); color: var(--rose-deep); opacity: .75; }
+@media (max-width: 640px) { .kd { grid-template-columns: 1fr; gap: 20px; } .kd-side { border-right: 0; border-bottom: 1px solid var(--line); padding-right: 0; padding-bottom: 18px; } }
+
+/* ===== Skills — Niveau-Stufen (Tastatur bleibt) ===== */
+/* Tasten-Sockel nach Niveau eingefärbt -> auf einen Blick erkennbar, Logo/Fläche bleiben weiss */
+.key.n-sehr  { --ks: color-mix(in srgb, var(--rose) 62%, var(--surface)); }
+.key.n-gut   { --ks: color-mix(in srgb, var(--rose) 40%, var(--surface)); }
+.key.n-grund { --ks: color-mix(in srgb, var(--rose) 18%, var(--surface)); }
+
+.kb-legend { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 22px; margin: 0 0 22px; }
+.kb-legend .lg-item { font-family: var(--sans); font-size: 13px; font-weight: 600; color: var(--ink-soft); display: inline-flex; align-items: center; gap: 8px; }
+.kb-legend .lg-item::before { content: ''; width: 13px; height: 13px; border-radius: 4px; box-shadow: inset 0 1px 1px rgba(255,255,255,.55); }
+.kb-legend .n-sehr::before  { background: linear-gradient(180deg, var(--rose), var(--wine)); }
+.kb-legend .n-gut::before   { background: color-mix(in srgb, var(--rose) 55%, var(--surface)); }
+.kb-legend .n-grund::before { background: color-mix(in srgb, var(--rose) 22%, var(--surface)); border: 1px solid var(--line); }
+
+.kd .cat { margin-bottom: 11px; }
+.kd-niv { display: inline-block; font-family: var(--sans); font-size: 12px; font-weight: 700; letter-spacing: .02em;
+  padding: 5px 13px; border-radius: 999px; margin: 0 0 18px; }
+.kd-niv.n-sehr  { background: linear-gradient(180deg, var(--rose), var(--wine)); color: #fff; }
+.kd-niv.n-gut   { background: color-mix(in srgb, var(--rose) 52%, var(--surface)); color: #fff; }
+.kd-niv.n-grund { background: var(--paper-2); color: var(--ink-soft); border: 1px solid var(--line); }
 .filterbar { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; justify-content: center; margin-bottom: clamp(30px, 4vw, 48px); }
 .filter-search { position: relative; flex: 1 1 240px; max-width: 340px; }
 .filter-search svg { position: absolute; left: 15px; top: 50%; transform: translateY(-50%); width: 16px; height: 16px; color: var(--rose-deep); pointer-events: none; }
@@ -467,7 +502,6 @@ button { font-family: var(--sans); cursor: pointer; color: inherit; }
   .dok-liste li { flex-direction: column; align-items: flex-start; }
 }
 @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; } }
-
 
 /* ===== Skills — Tastatur: reduced motion ===== */
 @media (prefers-reduced-motion: reduce) {
