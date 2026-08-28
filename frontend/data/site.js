@@ -12,7 +12,7 @@ export const site = {
   en: 'IMS Bern',
  },
 
- location: { de: 'Bern, Schweiz', en: 'Bern, Switzerland' },
+ location: { de: 'Biel, Schweiz', en: 'Biel, Switzerland' },
 
  focus: { de: 'UI/UX und Gestaltung', en: 'UI/UX and design' },
 
@@ -37,19 +37,9 @@ export const contact = {
   formEndpoint: 'https://formspree.io/f/mgawnkwn',
 }
 
-export const heroQuote = {
- text: 'Learning without thought is labour lost; thought without learning is perilous.',
- author: 'Confucius',
-}
-
 export const heroSlogan = {
  de: 'Wo Code auf Gestaltung trifft.',
  en: 'Where code meets design.',
-}
-
-export const status = {
- show: true,
- text: { de: 'Offen für Praktikum', en: 'Open to internship' },
 }
 
 export const impressum = {
