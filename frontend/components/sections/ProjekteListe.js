@@ -19,7 +19,7 @@ export default function ProjekteListe() {
   const [tech, setTech] = useState('alle')
   const [suche, setSuche] = useState('')
 
-  const alle = [...projekte].sort((a, b) => a.title.localeCompare(b.title))
+  const alle = [...projekte].sort((a, b) => (b.featured ? 1 : 0) - (a.featured ? 1 : 0) || a.title.localeCompare(b.title))
   const q = suche.trim().toLowerCase()
 
   const gefiltert = alle.filter((p) => {

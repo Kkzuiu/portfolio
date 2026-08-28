@@ -15,11 +15,13 @@ export default function ProjektKarte({ p, index }) {
     .map((key) => ({ key, text: tr(p.abstract?.[key]) }))
     .filter((f) => f.text)
   const galerie = p.gallery || []
-  const hatAbstract = abschnitte.length > 0 || galerie.length > 0
+  const hatAbstract = abschnitte.length > 0 || galerie.length > 0 || !!p.meta
+  const meta = p.meta
 
   return (
-    <article className="project-card reveal">
+    <article className={`project-card reveal ${p.featured ? 'featured' : ''}`}>
       <div className={`project-cover cover-${index % 3}`}>
+        {p.featured && <span className="proj-fav">★ {t('proj.featured')}</span>}
         {p.image
           ? <img src={p.image} alt={p.title} />
           : <span className="cover-letter">{p.title.charAt(0)}</span>}
@@ -27,6 +29,11 @@ export default function ProjektKarte({ p, index }) {
 
       <div className="project-body">
         <h3>{p.title}</h3>
+        {meta && (
+          <p className="proj-meta">
+            {tr(meta.team)} · {meta.zeitraum} · {tr(meta.status)}
+          </p>
+        )}
         <p className="project-desc">{tr(p.short)}</p>
 
         <div className="tags">
@@ -66,7 +73,29 @@ export default function ProjektKarte({ p, index }) {
         <Modal open={abstractOpen} onClose={() => setAbstractOpen(false)}>
           <p className="eyebrow">{t('proj.label')}</p>
           <h2 className="modal-title">{p.title}</h2>
+
+          {meta && (
+            <div className="modal-facts">
+              <span>{tr(meta.team)}</span>
+              <span>{meta.zeitraum}</span>
+              <span>{tr(meta.status)}</span>
+            </div>
+          )}
+
           <p className="modal-tech"><strong>{t('abs.tech')}:</strong> {p.tech.join(' · ')}</p>
+
+          {meta?.rolle && tr(meta.rolle) && (
+            <div className="abstract-block">
+              <h3>{t('abs.rolle')}</h3>
+              <p>{tr(meta.rolle)}</p>
+            </div>
+          )}
+          {meta?.herausforderung && tr(meta.herausforderung) && (
+            <div className="abstract-block">
+              <h3>{t('abs.herausforderung')}</h3>
+              <p>{tr(meta.herausforderung)}</p>
+            </div>
+          )}
 
           {galerie.length > 0 && (
             <div className="modal-gallery">
