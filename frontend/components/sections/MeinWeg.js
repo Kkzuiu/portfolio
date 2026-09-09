@@ -1,7 +1,6 @@
 'use client'
 import { useLang } from '@/components/LangProvider'
 
-// Persönlicher Abschluss unter der Tastatur auf der Skills-Seite.
 export default function MeinWeg() {
   const { t } = useLang()
 

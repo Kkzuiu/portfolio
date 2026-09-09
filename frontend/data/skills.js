@@ -1,5 +1,3 @@
-// Skill-Daten für die Tastatur-Ansicht.
-// niveau: sehr | gut | grund. icon = devicon-Klasse, legend = Kurztext ohne Logo. desc = persönlich, frei anpassen.
 export const skills = [
   {
     name: "HTML", niveau: "sehr", cat: { de: "Web Dev", en: "Web dev" }, icon: "html5-plain colored", legend: "", projekte: ["Matcha After Dark"],

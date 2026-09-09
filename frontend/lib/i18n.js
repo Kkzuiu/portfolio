@@ -31,7 +31,6 @@ export const texts = {
  'home.ctaText':   { de: 'Projekte, Code und kleine Experimente, alles an einem Ort.', en: 'Projects, code and little experiments, all in one place.' },
  'home.seeProjects': { de: 'Projekte ansehen', en: 'View projects' },
 
- // Mein-Weg-Abschnitt unter der Tastatur (Skills-Seite)
  'weg.sub':   { de: 'Mein Weg', en: 'My path' },
  'weg.title': { de: 'Wie ich hierher kam', en: 'How I got here' },
  'weg.kicker': { de: 'Von den ersten Zeilen Code bis heute.', en: 'From the first lines of code until today.' },

@@ -3,8 +3,6 @@ import { useState, useEffect } from 'react'
 import { useLang } from '@/components/LangProvider'
 import { skills } from '@/data/skills'
 
-// --- Schweizer QWERTZ-Tastatur ---
-// t(legend, code?, w?) = drückbare Technologie-Taste; d(legend, w?) = Deko-Taste (Modifier/tot).
 const t = (legend, code, w = 1) => ({ legend, code: code ?? legend.toLowerCase(), w, tech: true })
 const d = (legend, w = 1) => ({ legend, w, tech: false })
 
@@ -17,14 +15,13 @@ const RAW = [
   [d('fn', 1.1), d('ctrl', 1.1), d('opt', 1.1), d('cmd', 1.3), d('', 6), d('cmd', 1.3), d('opt', 1.1), d('◄'), d('▲▼'), d('►')],
 ]
 
-// Welche Technologie sitzt auf ihrer echten Buchstabentaste.
 const PRIMARY = {
   'HTML': 'h', 'CSS': 'c', 'JavaScript': 'j', 'UI/UX Design': 'u', 'Markdown': 'm', 'Git': 'g',
   'VS Code': 'v', 'Windows': 'w', 'Linux': 'l', 'Figma': 'f', 'XAML': 'x', 'IntelliJ IDEA': 'i',
   'Python': 'p', 'Bash': 'b', 'SQL': 's', 'Docker': 'd', 'React': 'r', 'Node.js': 'n',
   'Express': 'e', 'TypeScript': 't', 'Agile': 'a', '3D Printing': '3', '.NET': '.',
 }
-// Reihenfolge, in der die übrigen Technologien auf freie Tasten verteilt werden.
+
 const FILL = ['1', '2', '4', '5', '6', '7', '8', '9', '0', "'", '§', 'ü', 'ö', 'ä', '$', '<', ',', '-', 'a', 'q', 'z', 'o', 'k', 'y', 'f1', 'f2', 'f3', 'f4', 'f5', 'f6', 'f7', 'f8', 'f9', 'f10', 'f11', 'f12']
 
 function build() {
@@ -58,7 +55,6 @@ export default function SkillsListe() {
   const [sel, setSel] = useState(null)
   const s = sel != null ? skills[sel] : null
 
-  // Physische Tastatur: echte Taste drücken -> Technologie öffnen, nochmal drücken -> schliessen.
   useEffect(() => {
     function onKey(e) {
       if (e.metaKey || e.ctrlKey || e.altKey) return
@@ -137,7 +133,6 @@ export default function SkillsListe() {
            </div>
           </div>
 
-          {/* Fester Platz: das Panel taucht hier auf, ohne dass etwas darunter verrutscht. */}
           <div className="kb-detail">
             {s ? (
               <aside className="kd" key={sel}>
