@@ -93,6 +93,16 @@ function Formular({ titel, intro, knopf, fehler, hinweis, onSubmit }) {
   )
 }
 
+function ordneDokumente(namen) {
+  const rang = (n) => {
+    const x = (n || '').toLowerCase()
+    if (x.includes('lebenslauf') || x.startsWith('cv')) return 0
+    if (x.includes('zeugnis')) return 1
+    return 2
+  }
+  return [...namen].sort((a, b) => rang(a) - rang(b) || a.localeCompare(b, 'de', { numeric: true, sensitivity: 'base' }))
+}
+
 function PrivaterBereich({ user, onLogout }) {
   const { t } = useLang()
   const [dokumente, setDokumente] = useState([])
@@ -100,7 +110,7 @@ function PrivaterBereich({ user, onLogout }) {
   const ladeDokumente = useCallback(() => {
     fetch('/api/dokumente')
       .then((r) => r.json())
-      .then((d) => setDokumente(d.dokumente || []))
+      .then((d) => setDokumente(ordneDokumente(d.dokumente || [])))
       .catch(() => {})
   }, [])
 
