@@ -39,7 +39,7 @@
 
 :root {
   --display: 'Playfair Display', Georgia, serif;
-  --script:  'Sacramento', cursive; /* nur fuer die Begruessung "Hallo, ich bin" */
+  --script:  'Sacramento', cursive;
   --sans:    'DM Sans', system-ui, sans-serif;
   --maxw:    1180px;
   --nav-h:   76px;
@@ -55,7 +55,12 @@ body {
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
   transition: background .3s, color .3s;
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
 }
+main { flex: 1 0 auto; }
 a { color: inherit; text-decoration: none; }
 img, video { max-width: 100%; display: block; }
 h1, h2, h3, h4 { font-family: var(--display); font-weight: 600; line-height: 1.1; color: var(--ink); }
@@ -66,7 +71,6 @@ button { font-family: var(--sans); cursor: pointer; color: inherit; }
 .section.alt { background: var(--paper-2); }
 .muted { color: var(--ink-soft); }
 
-/* motifs */
 .script { font-family: var(--display); font-style: italic; font-weight: 500; color: var(--wine); }
 .spark { color: var(--gold); }
 .vlabel { writing-mode: vertical-rl; text-orientation: mixed; font-family: var(--sans); font-weight: 700;
@@ -86,7 +90,6 @@ button { font-family: var(--sans); cursor: pointer; color: inherit; }
 .section-head .lead { margin: 0 auto; }
 .section-head .head-cn { display: block; font-family: var(--sans); font-size: 13px; letter-spacing: .3em; color: var(--rose); margin-bottom: 6px; }
 
-/* buttons */
 .btn { display: inline-flex; align-items: center; gap: 10px; font-family: var(--sans); font-size: 15px; font-weight: 500;
   padding: 13px 28px; border-radius: 999px; background: var(--ink); color: var(--paper); border: 1.5px solid var(--ink);
   transition: transform .2s, background .2s, color .2s, border-color .2s; }
@@ -99,7 +102,6 @@ button { font-family: var(--sans); cursor: pointer; color: inherit; }
 .tags span { font-family: var(--sans); font-size: 12px; color: var(--rose-deep); background: var(--surface);
   border: 1px solid var(--line); padding: 5px 13px; border-radius: 999px; }
 
-/* nav */
 .nav { position: sticky; top: 0; z-index: 90; height: var(--nav-h); background: color-mix(in srgb, var(--paper) 86%, transparent);
   backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
 .nav-inner { height: 100%; display: flex; align-items: center; justify-content: space-between; }
@@ -124,7 +126,6 @@ button { font-family: var(--sans); cursor: pointer; color: inherit; }
 .burger.open span:nth-child(2) { opacity: 0; }
 .burger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
-/* hero */
 .hero { position: relative; overflow: hidden; background: var(--paper); }
 .hero-grid { display: grid; grid-template-columns: 1fr 0.86fr; gap: clamp(30px, 5vw, 74px); align-items: center;
   min-height: calc(100vh - var(--nav-h)); padding-top: clamp(36px, 6vw, 64px); padding-bottom: clamp(36px, 6vw, 64px); }
@@ -142,7 +143,6 @@ button { font-family: var(--sans); cursor: pointer; color: inherit; }
 .hero-art .spark-2 { bottom: 8px; right: -6px; }
 .hero-painting { width: 100%; height: 100%; object-fit: cover; border-radius: 220px 220px 12px 12px; box-shadow: var(--shadow); }
 
-/* statement / teaser */
 .teaser { background: var(--surface); }
 .teaser-grid { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: clamp(30px, 5vw, 70px); align-items: center; }
 .teaser-num { font-family: var(--display); font-weight: 700; font-size: clamp(60px, 9vw, 140px); color: transparent; -webkit-text-stroke: 1.5px var(--rose); line-height: .9; }
@@ -150,7 +150,6 @@ button { font-family: var(--sans); cursor: pointer; color: inherit; }
 .teaser h2 em { font-family: var(--display); font-style: italic; font-weight: 500; color: var(--wine); font-size: 1em; }
 .teaser p { font-family: var(--display); font-style: italic; color: var(--ink-soft); font-size: clamp(16px, 1.7vw, 20px); line-height: 1.7; margin-bottom: 24px; max-width: 46ch; }
 
-/* Mein Weg (Skills-Seite, unter der Tastatur) — zweispaltig, linksbuendig */
 .weg { background: var(--paper-2); }
 .weg-grid { display: grid; grid-template-columns: .82fr 1.18fr; gap: clamp(28px, 5vw, 70px); align-items: start; max-width: 1000px; margin: 0 auto; }
 .weg-head .eyebrow { justify-content: flex-start; }
@@ -161,7 +160,6 @@ button { font-family: var(--sans); cursor: pointer; color: inherit; }
 .weg-body em { font-style: normal; font-weight: 600; color: var(--wine); }
 @media (max-width: 760px) { .weg-grid { grid-template-columns: 1fr; gap: 22px; } }
 
-/* dark band (cta / practical) */
 .band-dark { background: var(--dark); color: var(--dark-ink); }
 .band-dark .kicker { font-family: var(--sans); font-size: 12px; letter-spacing: .3em; text-transform: uppercase; color: var(--rose); font-weight: 700; }
 .band-dark h2 { color: var(--dark-ink); font-size: clamp(30px, 5vw, 58px); margin: 14px 0 20px; }
@@ -172,13 +170,11 @@ button { font-family: var(--sans); cursor: pointer; color: inherit; }
 .band-dark .btn.ghost { background: transparent; color: var(--dark-ink); border-color: var(--dark-line); }
 .band-dark .btn.ghost:hover { border-color: var(--rose); color: var(--rose); }
 
-/* project gallery */
 .project-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(20px, 2.6vw, 34px); }
 .project-card { position: relative; background: var(--surface); border: 1px solid var(--line); border-radius: 16px; overflow: hidden;
   display: flex; flex-direction: column; transition: transform .28s, box-shadow .28s, border-color .28s; }
 .project-card:hover { transform: translateY(-6px); box-shadow: var(--shadow); border-color: var(--rose); }
 
-/* Lieblingsprojekt hervorheben */
 .project-card.featured { border-color: var(--rose-deep); box-shadow: 0 0 0 1px var(--rose-deep), 0 20px 40px -26px rgba(141,47,72,.5); }
 .proj-fav { position: absolute; top: 12px; left: 12px; z-index: 2; display: inline-flex; align-items: center; gap: 5px;
   font-family: var(--sans); font-size: 12px; font-weight: 700; letter-spacing: .02em; color: #fff;
@@ -205,10 +201,8 @@ button { font-family: var(--sans); cursor: pointer; color: inherit; }
 .link-btn.danger { border-color: transparent; color: var(--wine); }
 .link-btn.danger:hover { border-color: var(--wine); }
 
-/* ===== skills — echte Schweizer Tastatur (QWERTZ) + Detail-Panel ===== */
 .kb-layout { display: block; }
 
-/* Tastengrösse skaliert flüssig mit der echten Board-Breite -> passt immer rein, kein seitliches Scrollen */
 .kb { container-type: inline-size;
   display: flex; justify-content: center; padding: 2.2%; border-radius: 22px; width: 100%;
   background: linear-gradient(160deg, color-mix(in srgb, var(--rose) 20%, var(--surface)), var(--paper-2));
@@ -244,7 +238,6 @@ button { font-family: var(--sans); cursor: pointer; color: inherit; }
 .key.sel .pk { color: rgba(255,255,255,.75); }
 .key:focus-visible { outline: 2px solid var(--wine); outline-offset: 3px; z-index: 2; }
 
-/* Deko-Tasten (Modifier, tote Tasten, leere Tasten) – nicht klickbar */
 .key.deco { cursor: default; }
 .key.deco .cap { background: linear-gradient(180deg, color-mix(in srgb, var(--rose) 16%, var(--surface)), color-mix(in srgb, var(--rose) 30%, var(--paper-2)));
   box-shadow: 0 5px 0 -1px color-mix(in srgb, var(--rose) 30%, var(--line)), 0 11px 16px -8px rgba(120,50,80,.4); }
@@ -254,7 +247,6 @@ button { font-family: var(--sans); cursor: pointer; color: inherit; }
 .key.deco:hover .cap { box-shadow: 0 5px 0 -1px color-mix(in srgb, var(--rose) 30%, var(--line)), 0 11px 16px -8px rgba(120,50,80,.4); }
 .key .klbl { font-size: calc(var(--ku) * 0.17); font-weight: 700; color: var(--ink-soft); line-height: 1.05; text-align: center; padding: 0 2px; overflow: hidden; }
 
-/* Fester Slot fuer das Detail-Panel -> nichts darunter verrutscht beim Oeffnen/Schliessen */
 .kb-detail { min-height: 250px; margin-top: 30px; }
 .kd { max-width: 820px; margin: 0 auto; border-radius: 22px; background: var(--surface); border: 1px solid var(--line);
   box-shadow: var(--shadow); padding: 30px 32px; display: grid; grid-template-columns: 190px 1fr; gap: 32px; align-items: start;
@@ -276,8 +268,6 @@ button { font-family: var(--sans); cursor: pointer; color: inherit; }
 .kd-empty span { font-family: var(--display); font-style: italic; font-size: clamp(16px, 1.8vw, 19px); color: var(--rose-deep); opacity: .75; }
 @media (max-width: 640px) { .kd { grid-template-columns: 1fr; gap: 20px; } .kd-side { border-right: 0; border-bottom: 1px solid var(--line); padding-right: 0; padding-bottom: 18px; } }
 
-/* ===== Skills — Niveau-Stufen (Tastatur bleibt) ===== */
-/* Tasten-Sockel nach Niveau eingefärbt -> auf einen Blick erkennbar, Logo/Fläche bleiben weiss */
 .key.n-sehr  { --ks: color-mix(in srgb, var(--rose) 62%, var(--surface)); }
 .key.n-gut   { --ks: color-mix(in srgb, var(--rose) 40%, var(--surface)); }
 .key.n-grund { --ks: color-mix(in srgb, var(--rose) 18%, var(--surface)); }
@@ -326,7 +316,6 @@ button { font-family: var(--sans); cursor: pointer; color: inherit; }
 .filter-count { font-family: var(--sans); font-size: 13.5px; color: var(--ink-soft); margin-left: 2px; white-space: nowrap; }
 .projekte-empty { text-align: center; color: var(--ink-soft); font-family: var(--display); font-style: italic; font-size: clamp(16px, 1.7vw, 20px); padding: clamp(30px, 6vw, 60px) 0; }
 
-/* about (playful) */
 .ab2-top { display: grid; grid-template-columns: 0.82fr 1.18fr; gap: clamp(30px, 5vw, 72px); align-items: center; }
 .ab2-photo { margin: 0; transform: rotate(-2deg); border-radius: 14px; overflow: hidden; box-shadow: var(--shadow); background: var(--surface); }
 .ab2-photo img { width: 100%; height: auto; display: block; }
@@ -341,7 +330,6 @@ button { font-family: var(--sans); cursor: pointer; color: inherit; }
   .ab2-photo { max-width: 340px; margin: 0 auto; transform: none; }
 }
 
-/* timeline */
 .timeline { list-style: none; display: grid; gap: 0; max-width: 800px; margin: 0 auto; }
 .timeline-item { position: relative; padding: 26px 0 26px 36px; border-left: 2px solid var(--line); }
 .timeline-item::before { content: ''; position: absolute; left: -8px; top: 32px; width: 13px; height: 13px; border-radius: 50%; background: var(--rose); border: 3px solid var(--paper-2); }
@@ -350,7 +338,6 @@ button { font-family: var(--sans); cursor: pointer; color: inherit; }
 .timeline-item h3 { font-family: var(--display); font-size: 23px; margin-bottom: 3px; }
 .timeline-item p { font-family: var(--sans); color: var(--ink-soft); font-size: 15px; }
 
-/* personal — real vision board (static) */
 .block-title { font-family: var(--display); font-size: clamp(24px, 2.8vw, 34px); margin-bottom: 26px; }
 .lang-head { margin-top: clamp(52px, 7vw, 88px); }
 .vboard-frame { background: #efe7d7; border: 1px solid #e2d6c1; border-radius: 22px; padding: clamp(26px, 4vw, 58px);
@@ -388,7 +375,6 @@ button { font-family: var(--sans); cursor: pointer; color: inherit; }
 @media (max-width: 440px) { .lang-bubbles { grid-template-columns: 1fr; } }
 @media (max-width: 620px) { .vboard { column-count: 1; } .vb2, .vb2-0, .vb2-1, .vb2-2 { transform: none; } }
 
-/* contact */
 .contact-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: clamp(30px, 5vw, 60px); align-items: start; }
 .contact-list { list-style: none; display: grid; }
 .contact-list li { display: grid; grid-template-columns: 110px 1fr; gap: 12px; align-items: center; padding: 16px 0; border-top: 1px solid var(--line); }
@@ -405,7 +391,6 @@ button { font-family: var(--sans); cursor: pointer; color: inherit; }
 .field small { min-height: 16px; font-size: 12.5px; color: var(--wine); }
 .form-ok { color: var(--wine); font-family: var(--display); font-style: italic; font-size: 15px; }
 
-/* documents / login / admin */
 .login-wrap { display: flex; justify-content: center; }
 .login-card { width: 100%; max-width: 440px; background: var(--surface); border: 1px solid var(--line); border-radius: 20px; padding: clamp(30px, 6vw, 46px); text-align: center; box-shadow: var(--shadow); }
 .login-icon { display: inline-flex; width: 54px; height: 54px; align-items: center; justify-content: center; border-radius: 50%; background: var(--paper-2); color: var(--wine); margin-bottom: 16px; }
@@ -438,7 +423,6 @@ button { font-family: var(--sans); cursor: pointer; color: inherit; }
 .verlauf-zeit { color: var(--ink-soft); white-space: nowrap; }
 @media (max-width: 720px) { .admin-grid { grid-template-columns: 1fr; } .admin-listen { grid-template-columns: 1fr; } }
 
-/* modal */
 .modal-overlay { position: fixed; inset: 0; z-index: 200; background: rgba(44, 20, 34, .55); backdrop-filter: blur(3px); display: flex; align-items: center; justify-content: center; padding: 16px; animation: fade .2s ease; }
 @keyframes fade { from { opacity: 0; } to { opacity: 1; } }
 .modal-box { position: relative; background: var(--surface); border: 1px solid var(--line); border-radius: 18px; max-width: min(960px, 94vw); width: 100%; max-height: 92vh; overflow-y: auto; padding: clamp(24px, 4vw, 44px); box-shadow: var(--shadow); }
@@ -456,8 +440,7 @@ button { font-family: var(--sans); cursor: pointer; color: inherit; }
 .imp-address { font-style: normal; margin: 6px 0 16px; line-height: 1.9; }
 .imp-address a { color: var(--wine); }
 
-/* footer */
-.footer { background: var(--dark); color: var(--dark-soft); padding: clamp(52px, 7vw, 80px) 0 30px; }
+.footer { background: var(--dark); color: var(--dark-soft); padding: clamp(52px, 7vw, 80px) 0 30px; flex-shrink: 0; }
 .foot-grid { display: grid; grid-template-columns: 1.4fr 1fr 1.2fr; gap: 34px; }
 .foot-logo { font-family: var(--display); font-size: 24px; font-weight: 700; color: var(--dark-ink); }
 .foot-brand p { color: var(--dark-soft); font-size: 14px; margin-top: 8px; }
@@ -473,10 +456,8 @@ button { font-family: var(--sans); cursor: pointer; color: inherit; }
 .foot-link:hover { color: #fff; text-decoration: underline; }
 .foot-bottom .dot { opacity: .5; }
 
-/* reveal (always visible; .in kept for optional animation) */
 .reveal { opacity: 1; transform: none; }
 
-/* responsive */
 @media (max-width: 940px) {
   .hero-grid { grid-template-columns: 1fr; gap: 26px; }
   .hero-art { height: auto; order: -1; }
@@ -503,11 +484,7 @@ button { font-family: var(--sans); cursor: pointer; color: inherit; }
 }
 @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; } }
 
-/* ===== Skills — Tastatur: reduced motion ===== */
 @media (prefers-reduced-motion: reduce) {
   .key { transition: none; }
   .kd { animation: none; }
 }
-
-/* ===== Skills — Tastatur passt sich flüssig an (kein seitliches Scrollen) ===== */
-/* Tastengrösse kommt aus --ku (skaliert mit der Breite); keine festen Overrides nötig. */
